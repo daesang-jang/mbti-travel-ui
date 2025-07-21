@@ -1,75 +1,225 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>ENFP 여행 추천</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENFP 여행 추천 - MBTI Travel</title>
   <style>
-    body.enfp {
-      background-color: #FFF3E0;
-      color: #4E342E;
-      font-family: sans-serif;
-      line-height: 1.6;
-      padding: 40px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    h1, h2 {
-      margin-bottom: 0.5em;
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #FFF3E0 0%, #FFCC80 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #E65100;
     }
-    ul {
-      padding-left: 1.2em;
+
+    .container {
+      background: white;
+      padding: 3rem 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(230, 81, 0, 0.1);
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+      backdrop-filter: blur(10px);
     }
+
+    .header {
+      margin-bottom: 2rem;
+    }
+
+    .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #E65100;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      color: #666;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .recommendations {
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .recommendations h2 {
+      color: #E65100;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .recommendations ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .recommendations li {
+      background: #F8F9FA;
+      border-left: 4px solid #E65100;
+      padding: 1rem 1.5rem;
+      margin-bottom: 0.8rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .recommendations li:hover {
+      background: #FFF3E0;
+      transform: translateX(5px);
+    }
+
+    .recommendations strong {
+      color: #E65100;
+      font-weight: 600;
+    }
+
+    .controls {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #E0E0E0;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: #E65100;
+      font-size: 1.1rem;
+    }
+
     select {
-      margin-top: 2em;
-      padding: 0.5em;
-      font-size: 1em;
+      width: 100%;
+      padding: 1rem 1.2rem;
+      border: 2px solid #E0E0E0;
+      border-radius: 12px;
+      font-size: 1rem;
+      background: white;
+      color: #333;
+      transition: all 0.3s ease;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1rem;
     }
+
+    select:focus {
+      outline: none;
+      border-color: #E65100;
+      box-shadow: 0 0 0 3px rgba(230, 81, 0, 0.1);
+    }
+
+    select:hover {
+      border-color: #E65100;
+    }
+
     .back-button {
-        margin-top: 40px;
+      margin-top: 1.5rem;
     }
+
     .back-button a {
-        display: inline-block;
-        background-color: #444;
-        color: #fff;
-        text-decoration: none;
-        padding: 12px 24px;
-        border-radius: 8px;
-        font-weight: bold;
+      display: inline-block;
+      background: linear-gradient(135deg, #E65100 0%, #FF9800 100%);
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .back-button a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(230, 81, 0, 0.3);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 2rem 1.5rem;
+      }
+      
+      .header h1 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
-<body class="enfp">
-  <h1>ENFP는 이런 여행을 좋아해</h1>
-  <p>ENFP는 자유롭고 즉흥적인 여행을 즐겨.<br>
-미리 정해진 계획보다 '그때그때 끌리는' 장소를 선택하면서 다양한 사람과 교류하는 게 큰 즐거움이야.<br>
-활기차고 감각적인 자극이 넘치는 도시에서 ENFP는 에너지를 얻고 새로운 영감을 받아.<br>
-다양한 문화와 개방적인 분위기 속에서 ENFP의 열정은 더욱 살아나지!</p>
-
-  <h2>이런 여행지에서 ENFP와 여행이 잘 어울려:</h2>
-  <ul>
-    <li><strong>암스테르담 (네덜란드):</strong> 예술, 자유, 다양한 문화가 공존하는 활기찬 도시.</li>
-    <li><strong>치앙마이 (태국):</strong> 시장, 사원, 액티비티가 공존하는 열린 도시.</li>
-    <li><strong>멕시코시티 (멕시코):</strong> 거리 예술과 음식, 열정적인 에너지가 넘치는 도시.</li>
-  </ul>
-</br>
-  </br>
-  </br>
-  <label for="mbti-switch">다른 MBTI 보기:</label>
-  <select id="mbti-switch" onchange="location = this.value;">
-    <option disabled selected>MBTI 선택</option>
-    <option value="ENTP.html">ENTP</option>
-    <option value="ENTJ.html">ENTJ</option>
-    <option value="INFJ.html">INFJ</option>
-    <option value="ENFJ.html">ENFJ</option>
-    <option value="ISTJ.html">ISTJ</option>
-    <option value="ISFJ.html">ISFJ</option>
-    <option value="ESTJ.html">ESTJ</option>
-    <option value="ESFJ.html">ESFJ</option>
-    <option value="ISTP.html">ISTP</option>
-    <option value="ISFP.html">ISFP</option>
-    <option value="ESTP.html">ESTP</option>
-    <option value="ESFP.html">ESFP</option>
-  </select>
-    <div class="back-button">
-        <a href="/index.html">&larr; 다른 MBTI 확인하기</a>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="emoji">🎨 ✨</div>
+      <h1>ENFP는 이런 여행을 좋아해</h1>
     </div>
+
+    <div class="description">
+      <p>ENFP는 자유롭고 즉흥적인 여행을 즐겨.<br>
+      미리 정해진 계획보다 '그때그때 끌리는' 장소를 선택하면서 다양한 사람과 교류하는 게 큰 즐거움이야.<br>
+      활기차고 감각적인 자극이 넘치는 도시에서 ENFP는 에너지를 얻고 새로운 영감을 받아.<br>
+      다양한 문화와 개방적인 분위기 속에서 ENFP의 열정은 더욱 살아나지!</p>
+    </div>
+
+    <div class="recommendations">
+      <h2>이런 여행지에서 ENFP와 여행이 잘 어울려:</h2>
+      <ul>
+        <li><strong>암스테르담 (네덜란드):</strong> 예술, 자유, 다양한 문화가 공존하는 활기찬 도시.</li>
+        <li><strong>치앙마이 (태국):</strong> 시장, 사원, 액티비티가 공존하는 열린 도시.</li>
+        <li><strong>멕시코시티 (멕시코):</strong> 거리 예술과 음식, 열정적인 에너지가 넘치는 도시.</li>
+      </ul>
+    </div>
+
+    <div class="controls">
+      <div class="form-group">
+        <label for="mbti-switch">다른 MBTI 보기:</label>
+        <select id="mbti-switch" onchange="location = this.value;">
+          <option disabled selected>MBTI 선택</option>
+          <option value="INTJ.html">INTJ</option>
+          <option value="INTP.html">INTP</option>
+          <option value="ENTP.html">ENTP</option>
+          <option value="ENTJ.html">ENTJ</option>
+          <option value="INFJ.html">INFJ</option>
+          <option value="ENFJ.html">ENFJ</option>
+          <option value="ISTJ.html">ISTJ</option>
+          <option value="ISFJ.html">ISFJ</option>
+          <option value="ESTJ.html">ESTJ</option>
+          <option value="ESFJ.html">ESFJ</option>
+          <option value="ISTP.html">ISTP</option>
+          <option value="ISFP.html">ISFP</option>
+          <option value="ESTP.html">ESTP</option>
+          <option value="ESFP.html">ESFP</option>
+          <option value="INFP.html">INFP</option>
+        </select>
+      </div>
+
+      <div class="back-button">
+        <a href="/">🏠 메인으로 돌아가기</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
