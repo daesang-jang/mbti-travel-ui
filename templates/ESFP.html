@@ -1,75 +1,216 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>ESFP 여행 추천</title>
-  <style>
-    body.esfp {
-      background-color: #FBE9E7;
-      color: #D84315;
-      font-family: sans-serif;
-      line-height: 1.6;
-      padding: 40px;
-    }
-    h1, h2 {
-      margin-bottom: 0.5em;
-    }
-    ul {
-      padding-left: 1.2em;
-    }
-    select {
-      margin-top: 2em;
-      padding: 0.5em;
-      font-size: 1em;
-    }
-    .back-button {
-        margin-top: 40px;
-    }
-    .back-button a {
-        display: inline-block;
-        background-color: #444;
-        color: #fff;
-        text-decoration: none;
-        padding: 12px 24px;
-        border-radius: 8px;
-        font-weight: bold;
-    }
-  </style>
-</head>
-<body class="esfp">
-  <h1>ESFP는 이런 여행을 좋아해</h1>
-  <p>ESFP는 밝고 외향적인 성향으로 여행의 모든 순간을 즐겨.<br>
-사람들과의 교류, 음악, 음식 등 오감을 자극하는 활동을 선호하지.<br>
-즉흥적인 일정과 감정에 따라 변화하는 여정을 사랑해.<br>
-함께하는 사람들의 즐거움이 가장 큰 행복이야.</p>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESFP 여행 추천 - MBTI Travel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <h2>이런 여행지에서 ESFP와 여행이 잘 어울려:</h2>
-  <ul>
-    <li><strong>파리 (프랑스):</strong> 문화와 감각의 도시.</li>
-    <li><strong>호놀룰루 (하와이):</strong> 즐거움과 여유가 공존하는 휴양지.</li>
-    <li><strong>바르셀로나 (스페인):</strong> 색감과 열정이 넘치는 공간.</li>
-  </ul>
-</br>
-  </br>
-  </br>
-  <label for="mbti-switch">다른 MBTI 보기:</label>
-  <select id="mbti-switch" onchange="location = this.value;">
-    <option disabled selected>MBTI 선택</option>
-    <option value="ENTP.html">ENTP</option>
-    <option value="ENTJ.html">ENTJ</option>
-    <option value="INFJ.html">INFJ</option>
-    <option value="ENFJ.html">ENFJ</option>
-    <option value="ISTJ.html">ISTJ</option>
-    <option value="ISFJ.html">ISFJ</option>
-    <option value="ESTJ.html">ESTJ</option>
-    <option value="ESFJ.html">ESFJ</option>
-    <option value="ISTP.html">ISTP</option>
-    <option value="ISFP.html">ISFP</option>
-    <option value="ESTP.html">ESTP</option>
-    <option value="ESFP.html">ESFP</option>
-  </select>
-    <div class="back-button">
-        <a href="/index.html">&larr; 다른 MBTI 확인하기</a>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #FBE9E7 0%, #FFCCBC 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #D84315;
+            margin-bottom: 1rem;
+        }
+
+        .content {
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .content h2 {
+            color: #D84315;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content li {
+            background: #FFF3E0;
+            margin-bottom: 0.8rem;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            border-left: 4px solid #D84315;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .content strong {
+            color: #D84315;
+            font-weight: 600;
+        }
+
+        .controls {
+            margin-top: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        select {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: white;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1rem;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #D84315;
+            box-shadow: 0 0 0 3px rgba(216, 67, 21, 0.1);
+        }
+
+        select:hover {
+            border-color: #D84315;
+        }
+
+        .back-button {
+            margin-top: 1.5rem;
+        }
+
+        .back-button a {
+            display: inline-block;
+            background: linear-gradient(135deg, #D84315 0%, #FF5722 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .back-button a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(216, 67, 21, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="emoji">🎉 🌈</div>
+            <h1>ESFP 여행 스타일</h1>
+        </div>
+
+        <div class="content">
+            <p>ESFP는 밝고 외향적인 성향으로 여행의 모든 순간을 즐겨.<br>
+            사람들과의 교류, 음악, 음식 등 오감을 자극하는 활동을 선호하지.<br>
+            즉흥적인 일정과 감정에 따라 변화하는 여정을 사랑해.<br>
+            함께하는 사람들의 즐거움이 가장 큰 행복이야.</p>
+
+            <h2>🎯 추천 여행지</h2>
+            <ul>
+                <li><strong>파리 (프랑스):</strong> 문화와 감각의 도시.</li>
+                <li><strong>호놀룰루 (하와이):</strong> 즐거움과 여유가 공존하는 휴양지.</li>
+                <li><strong>바르셀로나 (스페인):</strong> 색감과 열정이 넘치는 공간.</li>
+            </ul>
+        </div>
+
+        <div class="controls">
+            <div class="form-group">
+                <label for="mbti-switch">다른 MBTI 보기:</label>
+                <select id="mbti-switch" onchange="location = this.value;">
+                    <option disabled selected>MBTI 선택</option>
+                    <option value="INTJ.html">INTJ - 건축가</option>
+                    <option value="INTP.html">INTP - 논리술사</option>
+                    <option value="ENTJ.html">ENTJ - 통솔자</option>
+                    <option value="ENTP.html">ENTP - 변론가</option>
+                    <option value="INFJ.html">INFJ - 옹호자</option>
+                    <option value="INFP.html">INFP - 중재자</option>
+                    <option value="ENFJ.html">ENFJ - 선도자</option>
+                    <option value="ENFP.html">ENFP - 활동가</option>
+                    <option value="ISTJ.html">ISTJ - 물류관리사</option>
+                    <option value="ISFJ.html">ISFJ - 수호자</option>
+                    <option value="ESTJ.html">ESTJ - 경영자</option>
+                    <option value="ESFJ.html">ESFJ - 집정관</option>
+                    <option value="ISTP.html">ISTP - 가상현실사</option>
+                    <option value="ISFP.html">ISFP - 모험가</option>
+                    <option value="ESTP.html">ESTP - 사업가</option>
+                </select>
+            </div>
+            
+            <div class="back-button">
+                <a href="/">🏠 다시 테스트하기</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
