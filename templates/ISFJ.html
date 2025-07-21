@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>ISFJ 여행 추천</title>
+  <style>
+    body.isfj {
+      background-color: #E8EAF6;
+      color: #303F9F;
+      font-family: sans-serif;
+      line-height: 1.6;
+      padding: 40px;
+    }
+    h1, h2 {
+      margin-bottom: 0.5em;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    select {
+      margin-top: 2em;
+      padding: 0.5em;
+      font-size: 1em;
+    }
+    .back-button {
+        margin-top: 40px;
+    }
+    .back-button a {
+        display: inline-block;
+        background-color: #444;
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body class="isfj">
+  <h1>ISFJ는 이런 여행을 좋아해</h1>
+  <p>ISFJ는 주변 사람들을 세심하게 챙기며 조용한 여행을 선호해.<br>
+익숙하고 따뜻한 분위기에서 감정을 공유하는 걸 좋아하지.<br>
+차분하게 풍경을 감상하거나 의미 있는 장소를 방문하는 걸 선호해.<br>
+여행 중 누군가를 도와주는 것에서도 기쁨을 느껴.</p>
+
+  <h2>이런 여행지에서 ISFJ와 여행이 잘 어울려:</h2>
+  <ul>
+    <li><strong>하이델베르크 (독일):</strong> 아늑하고 정겨운 중세풍 도시.</li>
+    <li><strong>브뤼헤 (벨기에):</strong> 평화롭고 낭만적인 분위기.</li>
+    <li><strong>교토 (일본):</strong> 정적인 전통미가 있는 도시.</li>
+  </ul>
+</br>
+  </br>
+  </br>
+  <label for="mbti-switch">다른 MBTI 보기:</label>
+  <select id="mbti-switch" onchange="location = this.value;">
+    <option disabled selected>MBTI 선택</option>
+    <option value="ENTP.html">ENTP</option>
+    <option value="ENTJ.html">ENTJ</option>
+    <option value="INFJ.html">INFJ</option>
+    <option value="ENFJ.html">ENFJ</option>
+    <option value="ISTJ.html">ISTJ</option>
+    <option value="ISFJ.html">ISFJ</option>
+    <option value="ESTJ.html">ESTJ</option>
+    <option value="ESFJ.html">ESFJ</option>
+    <option value="ISTP.html">ISTP</option>
+    <option value="ISFP.html">ISFP</option>
+    <option value="ESTP.html">ESTP</option>
+    <option value="ESFP.html">ESFP</option>
+  </select>
+    <div class="back-button">
+        <a href="/index.html">&larr; 다른 MBTI 확인하기</a>
+    </div>
+</body>
+</html>
