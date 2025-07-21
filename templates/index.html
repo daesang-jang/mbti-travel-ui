@@ -1,35 +1,193 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>MBTI Travel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI Travel - 나만의 여행 스타일 찾기</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .form-container {
+            margin: 2rem 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        select {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: white;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1rem;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        select:hover {
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .footer {
+            margin-top: 2rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .emoji {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to MBTI Travel!</h1>
-    <p>Select your MBTI to get a personalized travel tip.</p>
-    <!-- index.html 내 form 수정 -->
-    <form action="/redirect" method="post">
-      <label for="mbti">MBTI를 선택하세요:</label>
-      <select name="mbti" id="mbti" required>
-        <option value="">-- 선택 --</option>
-        <option value="INTJ">INTJ</option>
-        <option value="INTP">INTP</option>
-        <option value="ENTJ">ENTJ</option>
-        <option value="ENTP">ENTP</option>
-        <option value="INFJ">INFJ</option>
-        <option value="INFP">INFP</option>
-        <option value="ENFJ">ENFJ</option>
-        <option value="ENFP">ENFP</option>
-        <option value="ISTJ">ISTJ</option>
-        <option value="ISFJ">ISFJ</option>
-        <option value="ESTJ">ESTJ</option>
-        <option value="ESFJ">ESFJ</option>
-        <option value="ISTP">ISTP</option>
-        <option value="ISFP">ISFP</option>
-        <option value="ESTP">ESTP</option>
-        <option value="ESFP">ESFP</option>
-      </select>
-      <button type="submit">여행 추천 받기</button>
-    </form>
+    <div class="container">
+        <div class="header">
+            <div class="emoji">✈️ 🌟</div>
+            <h1>MBTI Travel</h1>
+            <p>당신의 성격 유형에 맞는<br>완벽한 여행 스타일을 찾아보세요!</p>
+        </div>
+
+        <form action="/redirect" method="post" class="form-container">
+            <div class="form-group">
+                <label for="mbti">나의 MBTI는?</label>
+                <select name="mbti" id="mbti" required>
+                    <option value="">-- MBTI를 선택하세요 --</option>
+                    <optgroup label="분석가 (NT)">
+                        <option value="INTJ">INTJ - 건축가</option>
+                        <option value="INTP">INTP - 논리술사</option>
+                        <option value="ENTJ">ENTJ - 통솔자</option>
+                        <option value="ENTP">ENTP - 변론가</option>
+                    </optgroup>
+                    <optgroup label="외교관 (NF)">
+                        <option value="INFJ">INFJ - 옹호자</option>
+                        <option value="INFP">INFP - 중재자</option>
+                        <option value="ENFJ">ENFJ - 선도자</option>
+                        <option value="ENFP">ENFP - 활동가</option>
+                    </optgroup>
+                    <optgroup label="관리자 (SJ)">
+                        <option value="ISTJ">ISTJ - 물류관리사</option>
+                        <option value="ISFJ">ISFJ - 수호자</option>
+                        <option value="ESTJ">ESTJ - 경영자</option>
+                        <option value="ESFJ">ESFJ - 집정관</option>
+                    </optgroup>
+                    <optgroup label="탐험가 (SP)">
+                        <option value="ISTP">ISTP - 가상현실사</option>
+                        <option value="ISFP">ISFP - 모험가</option>
+                        <option value="ESTP">ESTP - 사업가</option>
+                        <option value="ESFP">ESFP - 연예인</option>
+                    </optgroup>
+                </select>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+                🎯 나만의 여행 추천 받기
+            </button>
+        </form>
+
+        <div class="footer">
+            <p>16가지 성격 유형별 맞춤 여행지를 추천해드립니다</p>
+        </div>
+    </div>
 </body>
 </html>
