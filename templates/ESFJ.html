@@ -2,215 +2,226 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESFJ 여행 추천 - MBTI Travel</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESFJ 여행 추천 - MBTI Travel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #FFFDE7 0%, #FFF9C4 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #333;
-            padding: 2rem 1rem;
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #FFF9C4 0%, #FFF176 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #F57F17;
+    }
 
-        .container {
-            background: white;
-            padding: 3rem 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
-            backdrop-filter: blur(10px);
-        }
+    .container {
+      background: white;
+      padding: 3rem 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(245, 127, 23, 0.1);
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+      backdrop-filter: blur(10px);
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
+    .header {
+      margin-bottom: 2rem;
+    }
 
-        .emoji {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+    .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
 
-        .header h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #F57F17;
-            margin-bottom: 1rem;
-        }
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #F57F17;
+      margin-bottom: 1rem;
+    }
 
-        .content {
-            margin-bottom: 2rem;
-        }
+    .description {
+      color: #666;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
 
-        .content p {
-            color: #555;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
+    .recommendations {
+      text-align: left;
+      margin-bottom: 2rem;
+    }
 
-        .content h2 {
-            color: #F57F17;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
+    .recommendations h2 {
+      color: #F57F17;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
 
-        .content ul {
-            list-style: none;
-            padding: 0;
-        }
+    .recommendations ul {
+      list-style: none;
+      padding: 0;
+    }
 
-        .content li {
-            background: #FFFEF7;
-            margin-bottom: 0.8rem;
-            padding: 1rem 1.2rem;
-            border-radius: 12px;
-            border-left: 4px solid #F57F17;
-            color: #333;
-            line-height: 1.6;
-        }
+    .recommendations li {
+      background: #F8F9FA;
+      border-left: 4px solid #F57F17;
+      padding: 1rem 1.5rem;
+      margin-bottom: 0.8rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
 
-        .content strong {
-            color: #F57F17;
-            font-weight: 600;
-        }
+    .recommendations li:hover {
+      background: #FFF9C4;
+      transform: translateX(5px);
+    }
 
-        .controls {
-            margin-top: 2.5rem;
-        }
+    .recommendations strong {
+      color: #F57F17;
+      font-weight: 600;
+    }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+    .controls {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #E0E0E0;
+    }
 
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            color: #333;
-            font-size: 1.1rem;
-        }
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
 
-        select {
-            width: 100%;
-            padding: 1rem 1.2rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 1rem;
-            background: white;
-            transition: all 0.3s ease;
-            appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            background-size: 1rem;
-        }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: #F57F17;
+      font-size: 1.1rem;
+    }
 
-        select:focus {
-            outline: none;
-            border-color: #F57F17;
-            box-shadow: 0 0 0 3px rgba(245, 127, 23, 0.1);
-        }
+    select {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      border: 2px solid #E0E0E0;
+      border-radius: 12px;
+      font-size: 1rem;
+      background: white;
+      color: #333;
+      transition: all 0.3s ease;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1rem;
+    }
 
-        select:hover {
-            border-color: #F57F17;
-        }
+    select:focus {
+      outline: none;
+      border-color: #F57F17;
+      box-shadow: 0 0 0 3px rgba(245, 127, 23, 0.1);
+    }
 
-        .back-button {
-            margin-top: 1.5rem;
-        }
+    select:hover {
+      border-color: #F57F17;
+    }
 
-        .back-button a {
-            display: inline-block;
-            background: linear-gradient(135deg, #F57F17 0%, #FFC107 100%);
-            color: white;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            width: 100%;
-            text-align: center;
-        }
+    .back-button {
+      margin-top: 1.5rem;
+    }
 
-        .back-button a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(245, 127, 23, 0.3);
-        }
+    .back-button a {
+      display: inline-block;
+      background: linear-gradient(135deg, #F57F17 0%, #FFC107 100%);
+      color: white;
+      text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        width: 100%;
+        text-align: center;
+    }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 2rem 1.5rem;
-            }
-            
-            .header h1 {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+    .back-button a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(245, 127, 23, 0.3);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 2rem 1.5rem;
+      }
+      
+      .header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="emoji">☀️ 🤗</div>
-            <h1>ESFJ 여행 스타일</h1>
-        </div>
-
-        <div class="content">
-            <p>ESFJ는 타인을 챙기고 어울리는 걸 좋아하는 따뜻한 리더야.<br>
-            단체 여행이나 가족 여행에서 빛을 발하고 모두가 만족하는 일정에 기여하지.<br>
-            감성적인 교류와 일상의 즐거움을 함께 나누는 걸 좋아해.<br>
-            여행에서도 누군가의 행복을 먼저 생각하는 유형이지.</p>
-
-            <h2>🎯 추천 여행지</h2>
-            <ul>
-                <li><strong>로마 (이탈리아):</strong> 사람들과 어울리기 좋은 도시.</li>
-                <li><strong>제주도 (대한민국):</strong> 자연과 음식이 공존하는 따뜻한 여행지.</li>
-                <li><strong>파리 (프랑스):</strong> 정서적 교류가 풍부한 문화 도시.</li>
-            </ul>
-        </div>
-
-        <div class="controls">
-            <div class="form-group">
-                <label for="mbti-switch">다른 MBTI 보기:</label>
-                <select id="mbti-switch" onchange="location = this.value;">
-                    <option disabled selected>MBTI 선택</option>
-                    <option value="INTJ.html">INTJ - 건축가</option>
-                    <option value="INTP.html">INTP - 논리술사</option>
-                    <option value="ENTJ.html">ENTJ - 통솔자</option>
-                    <option value="ENTP.html">ENTP - 변론가</option>
-                    <option value="INFJ.html">INFJ - 옹호자</option>
-                    <option value="INFP.html">INFP - 중재자</option>
-                    <option value="ENFJ.html">ENFJ - 선도자</option>
-                    <option value="ENFP.html">ENFP - 활동가</option>
-                    <option value="ISTJ.html">ISTJ - 물류관리사</option>
-                    <option value="ISFJ.html">ISFJ - 수호자</option>
-                    <option value="ESTJ.html">ESTJ - 경영자</option>
-                    <option value="ISTP.html">ISTP - 가상현실사</option>
-                    <option value="ISFP.html">ISFP - 모험가</option>
-                    <option value="ESTP.html">ESTP - 사업가</option>
-                    <option value="ESFP.html">ESFP - 연예인</option>
-                </select>
-            </div>
-            
-            <div class="back-button">
-                <a href="/">🏠 메인으로 돌아가기</a>
-            </div>
-        </div>
+  <div class="container">
+    <div class="header">
+      <div class="emoji">🎉 🤝</div>
+      <h1>ESFJ는 이런 여행을 좋아해</h1>
     </div>
+
+    <div class="description">
+      <p>ESFJ는 사람들과 함께하는 즐거운 여행을 좋아해.<br>
+      가족이나 친구들과 함께 만들어가는 추억을 소중히 여기지.<br>
+      모든 사람이 즐겁고 편안한 여행이 되도록 세심하게 배려해.<br>
+      문화 체험과 사람들과의 교류를 통해 행복을 느껴.</p>
+    </div>
+
+    .recommendations">
+      <h2>이런 여행지에서 ESFJ와 여행이 잘 어울려:</h2>
+      <ul>
+        <li><strong>파리 (프랑스):</strong> 로맨틱하고 문화적인 경험을 함께 나눌 수 있는 도시.</li>
+        <li><strong>하와이 (미국):</strong> 가족과 친구들과 함께 즐기기 좋은 휴양지.</li>
+        <li><strong>이탈리아:</strong> 음식과 문화를 통해 사람들과 소통할 수 있는 따뜻한 나라.</li>
+      </ul>
+    </div>
+
+    <div class="controls">
+      <div class="form-group">
+        <label for="mbti-switch">다른 MBTI 보기:</label>
+        <select id="mbti-switch" onchange="location = this.value;">
+          <option disabled selected>MBTI 선택</option>
+          <option value="INTJ.html">INTJ</option>
+          <option value="INTP.html">INTP</option>
+          <option value="ENTJ.html">ENTJ</option>
+          <option value="ENTP.html">ENTP</option>
+          <option value="INFJ.html">INFJ</option>
+          <option value="INFP.html">INFP</option>
+          <option value="ENFJ.html">ENFJ</option>
+          <option value="ISFJ.html">ISFJ</option>
+          <option value="ISTJ.html">ISTJ</option>
+          <option value="ESTJ.html">ESTJ</option>
+          <option value="ISTP.html">ISTP</option>
+          <option value="ISFP.html">ISFP</option>
+          <option value="ESTP.html">ESTP</option>
+          <option value="ESFP.html">ESFP</option>
+          <option value="ENFP.html">ENFP</option>
+        </select>
+      </div>
+
+      <div class="back-button">
+        <a href="/">🏠 메인으로 돌아가기</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

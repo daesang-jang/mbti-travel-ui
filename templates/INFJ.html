@@ -2,215 +2,226 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INFJ 여행 추천 - MBTI Travel</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INFJ 여행 추천 - MBTI Travel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #333;
-            padding: 2rem 1rem;
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4A148C;
+    }
 
-        .container {
-            background: white;
-            padding: 3rem 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
-            backdrop-filter: blur(10px);
-        }
+    .container {
+      background: white;
+      padding: 3rem 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(74, 20, 140, 0.1);
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+      backdrop-filter: blur(10px);
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
+    .header {
+      margin-bottom: 2rem;
+    }
 
-        .emoji {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+    .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
 
-        .header h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #4A148C;
-            margin-bottom: 1rem;
-        }
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #4A148C;
+      margin-bottom: 1rem;
+    }
 
-        .content {
-            margin-bottom: 2rem;
-        }
+    .description {
+      color: #666;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
 
-        .content p {
-            color: #555;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
+    .recommendations {
+      text-align: left;
+      margin-bottom: 2rem;
+    }
 
-        .content h2 {
-            color: #4A148C;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
+    .recommendations h2 {
+      color: #4A148C;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
 
-        .content ul {
-            list-style: none;
-            padding: 0;
-        }
+    .recommendations ul {
+      list-style: none;
+      padding: 0;
+    }
 
-        .content li {
-            background: #F8F5F9;
-            margin-bottom: 0.8rem;
-            padding: 1rem 1.2rem;
-            border-radius: 12px;
-            border-left: 4px solid #4A148C;
-            color: #333;
-            line-height: 1.6;
-        }
+    .recommendations li {
+      background: #F8F9FA;
+      border-left: 4px solid #4A148C;
+      padding: 1rem 1.5rem;
+      margin-bottom: 0.8rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
 
-        .content strong {
-            color: #4A148C;
-            font-weight: 600;
-        }
+    .recommendations li:hover {
+      background: #F3E5F5;
+      transform: translateX(5px);
+    }
 
-        .controls {
-            margin-top: 2.5rem;
-        }
+    .recommendations strong {
+      color: #4A148C;
+      font-weight: 600;
+    }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+    .controls {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #E0E0E0;
+    }
 
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            color: #333;
-            font-size: 1.1rem;
-        }
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
 
-        select {
-            width: 100%;
-            padding: 1rem 1.2rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 1rem;
-            background: white;
-            transition: all 0.3s ease;
-            appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            background-size: 1rem;
-        }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: #4A148C;
+      font-size: 1.1rem;
+    }
 
-        select:focus {
-            outline: none;
-            border-color: #4A148C;
-            box-shadow: 0 0 0 3px rgba(74, 20, 140, 0.1);
-        }
+    select {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      border: 2px solid #E0E0E0;
+      border-radius: 12px;
+      font-size: 1rem;
+      background: white;
+      color: #333;
+      transition: all 0.3s ease;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1rem;
+    }
 
-        select:hover {
-            border-color: #4A148C;
-        }
+    select:focus {
+      outline: none;
+      border-color: #4A148C;
+      box-shadow: 0 0 0 3px rgba(74, 20, 140, 0.1);
+    }
 
-        .back-button {
-            margin-top: 1.5rem;
-        }
+    select:hover {
+      border-color: #4A148C;
+    }
 
-        .back-button a {
-            display: inline-block;
-            background: linear-gradient(135deg, #4A148C 0%, #7B1FA2 100%);
-            color: white;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            width: 100%;
-            text-align: center;
-        }
+    .back-button {
+      margin-top: 1.5rem;
+    }
 
-        .back-button a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(74, 20, 140, 0.3);
-        }
+    .back-button a {
+      display: inline-block;
+      background: linear-gradient(135deg, #4A148C 0%, #7B1FA2 100%);
+      color: white;
+      text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        width: 100%;
+        text-align: center;
+    }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 2rem 1.5rem;
-            }
-            
-            .header h1 {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+    .back-button a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(74, 20, 140, 0.3);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 2rem 1.5rem;
+      }
+      
+      .header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="emoji">🔮 🌙</div>
-            <h1>INFJ 여행 스타일</h1>
-        </div>
-
-        <div class="content">
-            <p>INFJ는 조용하고 의미 있는 여행을 추구하는 이상주의자야.<br>
-            혼잡한 곳보다는 상징적이고 깊이 있는 장소에서 감정적으로 연결돼.<br>
-            내면의 통찰과 정서를 자극하는 여행을 소중히 여겨.<br>
-            감성적인 장면 속에서 자신을 돌아보는 시간을 갖지.</p>
-
-            <h2>🎯 추천 여행지</h2>
-            <ul>
-                <li><strong>프라하 (체코):</strong> 동화 같은 분위기와 깊은 역사.</li>
-                <li><strong>루앙프라방 (라오스):</strong> 고요하고 명상적인 환경.</li>
-                <li><strong>에든버러 (스코틀랜드):</strong> 신비롭고 고전적인 풍경.</li>
-            </ul>
-        </div>
-
-        <div class="controls">
-            <div class="form-group">
-                <label for="mbti-switch">다른 MBTI 보기:</label>
-                <select id="mbti-switch" onchange="location = this.value;">
-                    <option disabled selected>MBTI 선택</option>
-                    <option value="INTJ.html">INTJ - 건축가</option>
-                    <option value="INTP.html">INTP - 논리술사</option>
-                    <option value="ENTJ.html">ENTJ - 통솔자</option>
-                    <option value="ENTP.html">ENTP - 변론가</option>
-                    <option value="INFP.html">INFP - 중재자</option>
-                    <option value="ENFJ.html">ENFJ - 선도자</option>
-                    <option value="ENFP.html">ENFP - 활동가</option>
-                    <option value="ISTJ.html">ISTJ - 물류관리사</option>
-                    <option value="ISFJ.html">ISFJ - 수호자</option>
-                    <option value="ESTJ.html">ESTJ - 경영자</option>
-                    <option value="ESFJ.html">ESFJ - 집정관</option>
-                    <option value="ISTP.html">ISTP - 가상현실사</option>
-                    <option value="ISFP.html">ISFP - 모험가</option>
-                    <option value="ESTP.html">ESTP - 사업가</option>
-                    <option value="ESFP.html">ESFP - 연예인</option>
-                </select>
-            </div>
-            
-            <div class="back-button">
-                <a href="/">🏠 메인으로 돌아가기</a>
-            </div>
-        </div>
+  <div class="container">
+    <div class="header">
+      <div class="emoji">🌟 💜</div>
+      <h1>INFJ는 이런 여행을 좋아해</h1>
     </div>
+
+    <div class="description">
+      <p>INFJ는 깊이 있고 의미 있는 여행을 선호해.<br>
+      영감을 주는 장소나 정신적 성장을 도모할 수 있는 여행을 좋아하지.<br>
+      조용하고 사색적인 환경에서 내면의 평화를 찾는 것을 중시해.<br>
+      단순한 관광보다는 마음에 울림을 주는 깊은 경험을 원해.</p>
+    </div>
+
+    <div class="recommendations">
+      <h2>이런 여행지에서 INFJ와 여행이 잘 어울려:</h2>
+      <ul>
+        <li><strong>교토 (일본):</strong> 고요한 사찰과 정원에서 내면의 평화를 찾을 수 있는 곳.</li>
+        <li><strong>프라하 (체코):</strong> 신비로운 분위기와 역사적 깊이가 있는 아름다운 도시.</li>
+        <li><strong>산토리니 (그리스):</strong> 영감을 주는 풍경과 조용한 사색의 시간이 가능한 곳.</li>
+      </ul>
+    </div>
+
+    <div class="controls">
+      <div class="form-group">
+        <label for="mbti-switch">다른 MBTI 보기:</label>
+        <select id="mbti-switch" onchange="location = this.value;">
+          <option disabled selected>MBTI 선택</option>
+          <option value="INTJ.html">INTJ</option>
+          <option value="INTP.html">INTP</option>
+          <option value="ENTJ.html">ENTJ</option>
+          <option value="ENTP.html">ENTP</option>
+          <option value="ENFJ.html">ENFJ</option>
+          <option value="ISTJ.html">ISTJ</option>
+          <option value="ISFJ.html">ISFJ</option>
+          <option value="ESTJ.html">ESTJ</option>
+          <option value="ESFJ.html">ESFJ</option>
+          <option value="ISTP.html">ISTP</option>
+          <option value="ISFP.html">ISFP</option>
+          <option value="ESTP.html">ESTP</option>
+          <option value="ESFP.html">ESFP</option>
+          <option value="INFP.html">INFP</option>
+          <option value="ENFP.html">ENFP</option>
+        </select>
+      </div>
+
+      <div class="back-button">
+        <a href="/">🏠 메인으로 돌아가기</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
