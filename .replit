@@ -11,8 +11,8 @@ language = "python3"
 requiredFiles = [".replit", "replit.nix"]
 
 [deployment]
-deploymentTarget = "static"
-publicDir = "/"
+deploymentTarget = "cloudrun"
+run = ["sh", "-c", "python main.py"]
 
 [[ports]]
 localPort = 5000
