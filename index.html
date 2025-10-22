@@ -1,12 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>Your MBTI Travel Tip</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MBTI 여행 추천</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 40px; }
+    h1 { font-size: 28px; margin-bottom: 12px; }
+    p { color: #444; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin-top: 20px; }
+    a.card { display: block; padding: 14px 16px; border: 1px solid #ddd; border-radius: 12px; text-decoration: none; color: #111; }
+    a.card:hover { box-shadow: 0 4px 14px rgba(0,0,0,.08); }
+    footer { margin-top: 24px; font-size: 12px; color: #666; }
+  </style>
 </head>
 <body>
-  <h1>Your Travel Tip for {{ mbti }}</h1>
-  <p>{{ tip }}</p>
-  <a href="/">Go back</a>
+  <h1>MBTI 여행 추천</h1>
+  <p>아래에서 타입을 선택하면 해당 정적 페이지로 이동합니다.</p>
+
+  <div class="grid">
+    <a class="card" href="templates/INTJ.html">INTJ</a>
+    <a class="card" href="templates/INTP.html">INTP</a>
+    <a class="card" href="templates/ENTJ.html">ENTJ</a>
+    <a class="card" href="templates/ENTP.html">ENTP</a>
+    <a class="card" href="templates/INFJ.html">INFJ</a>
+    <a class="card" href="templates/INFP.html">INFP</a>
+    <a class="card" href="templates/ENFJ.html">ENFJ</a>
+    <a class="card" href="templates/ENFP.html">ENFP</a>
+    <a class="card" href="templates/ISTJ.html">ISTJ</a>
+    <a class="card" href="templates/ISFJ.html">ISFJ</a>
+    <a class="card" href="templates/ESTJ.html">ESTJ</a>
+    <a class="card" href="templates/ESFJ.html">ESFJ</a>
+    <a class="card" href="templates/ISTP.html">ISTP</a>
+    <a class="card" href="templates/ISFP.html">ISFP</a>
+    <a class="card" href="templates/ESTP.html">ESTP</a>
+    <a class="card" href="templates/ESFP.html">ESFP</a>
+  </div>
+
+  <footer>GitHub Pages 정적 배포 · <code>/templates/*.html</code>로 링크</footer>
 </body>
 </html>
