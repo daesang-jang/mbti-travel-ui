@@ -1,42 +1,108 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MBTI 여행 추천</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MBTI Travel - 나만의 여행 스타일 찾기</title>
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 40px; }
-    h1 { font-size: 28px; margin-bottom: 12px; }
-    p { color: #444; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin-top: 20px; }
-    a.card { display: block; padding: 14px 16px; border: 1px solid #ddd; border-radius: 12px; text-decoration: none; color: #111; }
-    a.card:hover { box-shadow: 0 4px 14px rgba(0,0,0,.08); }
-    footer { margin-top: 24px; font-size: 12px; color: #666; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #333;
+    }
+    .container {
+      background: white; padding: 3rem 2.5rem; border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); text-align: center;
+      max-width: 500px; width: 90%; backdrop-filter: blur(10px);
+    }
+    .header { margin-bottom: 2rem; }
+    .header h1 {
+      font-size: 2.5rem; font-weight: 700;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    .header p { color: #666; font-size: 1.1rem; line-height: 1.6; }
+    .form-container { margin: 2rem 0; }
+    .form-group { margin-bottom: 1.5rem; text-align: left; }
+    label { display: block; font-weight: 600; margin-bottom: 0.8rem; color: #333; font-size: 1.1rem; }
+    select {
+      width: 100%; padding: 1rem 1.2rem; border: 2px solid #e0e0e0; border-radius: 12px;
+      font-size: 1rem; background: white; transition: all 0.3s ease; appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat; background-position: right 1rem center; background-size: 1rem;
+    }
+    select:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); }
+    select:hover { border-color: #667eea; }
+    .submit-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;
+      padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 600; border-radius: 12px;
+      cursor: pointer; transition: all 0.3s ease; width: 100%; margin-top: 1rem;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3); }
+    .submit-btn:active { transform: translateY(0); }
+    .footer { margin-top: 2rem; color: #888; font-size: 0.9rem; }
+    .emoji { font-size: 2rem; margin-bottom: 1rem; }
+    @media (max-width: 600px) { .container { padding: 2rem 1.5rem; } .header h1 { font-size: 2rem; } }
   </style>
+  <script>
+    function redirectToMBTI(e) {
+      e.preventDefault();
+      const mbti = document.getElementById('mbti').value;
+      if (mbti) {
+        // GitHub Pages용 정적 이동: /templates/<MBTI>.html
+        window.location.href = 'templates/' + mbti + '.html';
+      }
+    }
+  </script>
 </head>
 <body>
-  <h1>MBTI 여행 추천</h1>
-  <p>아래에서 타입을 선택하면 해당 정적 페이지로 이동합니다.</p>
+  <div class="container">
+    <div class="header">
+      <div class="emoji">✈️ 🌟</div>
+      <h1>MBTI Travel</h1>
+      <p>당신의 성격 유형에 맞는<br>완벽한 여행 스타일을 찾아보세요!</p>
+    </div>
 
-  <div class="grid">
-    <a class="card" href="templates/INTJ.html">INTJ</a>
-    <a class="card" href="templates/INTP.html">INTP</a>
-    <a class="card" href="templates/ENTJ.html">ENTJ</a>
-    <a class="card" href="templates/ENTP.html">ENTP</a>
-    <a class="card" href="templates/INFJ.html">INFJ</a>
-    <a class="card" href="templates/INFP.html">INFP</a>
-    <a class="card" href="templates/ENFJ.html">ENFJ</a>
-    <a class="card" href="templates/ENFP.html">ENFP</a>
-    <a class="card" href="templates/ISTJ.html">ISTJ</a>
-    <a class="card" href="templates/ISFJ.html">ISFJ</a>
-    <a class="card" href="templates/ESTJ.html">ESTJ</a>
-    <a class="card" href="templates/ESFJ.html">ESFJ</a>
-    <a class="card" href="templates/ISTP.html">ISTP</a>
-    <a class="card" href="templates/ISFP.html">ISFP</a>
-    <a class="card" href="templates/ESTP.html">ESTP</a>
-    <a class="card" href="templates/ESFP.html">ESFP</a>
+    <form class="form-container" onsubmit="redirectToMBTI(event)">
+      <div class="form-group">
+        <label for="mbti">나의 MBTI는?</label>
+        <select name="mbti" id="mbti" required>
+          <option value="">-- MBTI를 선택하세요 --</option>
+          <optgroup label="분석가 (NT)">
+            <option value="INTJ">INTJ - 건축가</option>
+            <option value="INTP">INTP - 논리술사</option>
+            <option value="ENTJ">ENTJ - 통솔자</option>
+            <option value="ENTP">ENTP - 변론가</option>
+          </optgroup>
+          <optgroup label="외교관 (NF)">
+            <option value="INFJ">INFJ - 옹호자</option>
+            <option value="INFP">INFP - 중재자</option>
+            <option value="ENFJ">ENFJ - 선도자</option>
+            <option value="ENFP">ENFP - 활동가</option>
+          </optgroup>
+          <optgroup label="관리자 (SJ)">
+            <option value="ISTJ">ISTJ - 물류관리사</option>
+            <option value="ISFJ">ISFJ - 수호자</option>
+            <option value="ESTJ">ESTJ - 경영자</option>
+            <option value="ESFJ">ESFJ - 집정관</option>
+          </optgroup>
+          <optgroup label="탐험가 (SP)">
+            <option value="ISTP">ISTP - 가상현실사</option>
+            <option value="ISFP">ISFP - 모험가</option>
+            <option value="ESTP">ESTP - 사업가</option>
+            <option value="ESFP">ESFP - 연예인</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn">🎯 나만의 여행 추천 받기</button>
+    </form>
+
+    <div class="footer">
+      <p>16가지 성격 유형별 맞춤 여행지를 추천해드립니다</p>
+    </div>
   </div>
-
-  <footer>GitHub Pages 정적 배포 · <code>/templates/*.html</code>로 링크</footer>
 </body>
 </html>
